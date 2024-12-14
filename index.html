@@ -3,133 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Pension</title> <!-- changed to Dog Pension -->
+    <title>Dog Pension</title>
     <style>
-        body {
+         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #000;
+             font-family: Arial, sans-serif;
+             background-color: #000;
             overflow-x: hidden;
         }
 
-        .loading-screen {
-            position: fixed;
+       .loading-screen {
+             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+           background-color: #000;
             display: flex;
              justify-content: center;
             align-items: center;
-            z-index: 1000;
+             z-index: 1000;
         }
-
-         .loading-icon {
-            width: 80px;
+        .loading-icon {
+           width: 80px;
             height: 80px;
-            animation: rotate 2s linear infinite; /* Rotate animation */
-            display: flex;
-           justify-content: center;
-            align-items: center;
-         }
+            animation: rotate 2s linear infinite;
+             display: flex;
+              justify-content: center;
+             align-items: center;
+        }
         .loading-icon img {
-           width: 100%;
+            width: 100%;
             height: 100%;
             object-fit: contain;
         }
-        @keyframes rotate {
+         @keyframes rotate {
             from {
                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
+           }
+           to {
+              transform: rotate(360deg);
            }
         }
 
-        .image-section {
-            height: calc(100vh - 50px); /* Adjusted height */
+       .image-section {
+            height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+              justify-content: center;
+             align-items: center;
+             position: relative;
         }
 
-       .image-section img {
+        .image-section img {
             max-width: 90%;
             max-height: 90%;
-             object-fit: contain;
-        }
+            object-fit: contain;
+       }
+
         .scroll-indicator {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-             font-size: 1.5em;
-             color: #fff;
-            text-align: center;
+            bottom: 30px; /* Move down */
+             right: 30px; /* Move to right */
+            font-size: 1.5em;
+             color: #aaa; /* Gray color */
+             text-align: center;
             cursor: pointer;
-        }
+            padding-bottom: 0;
+             box-sizing: border-box;
+          transform: translateX(0); /* Remove X transform */
+         }
 
          .scroll-indicator span {
-             display: block;
+            display: block;
              animation: bounce 2s infinite;
-       }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+        }
+         @keyframes bounce {
+             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
-             }
+            }
             40% {
-               transform: translateY(-10px);
+                 transform: translateY(-10px);
             }
             60% {
-                transform: translateY(-5px);
+                 transform: translateY(-5px);
             }
-        }
-         .fade-section {
-          display: none; /* Removed crossfade section */
        }
+
+      .fade-section {
+          display: none; /* Removed crossfade section */
+        }
     </style>
 </head>
 <body>
-     <div class="loading-screen" id="loading-screen">
-        <div class="loading-icon">
-          <img src="dog_icon.png" alt="Dog Icon">
-      </div>
+    <div class="loading-screen" id="loading-screen">
+       <div class="loading-icon">
+             <img src="dog_icon.png" alt="Dog Icon">
+        </div>
     </div>
 
    <div class="image-section">
         <img src="main_image.jpg" alt="Main Image">
-       <div class="scroll-indicator" id="scroll-indicator">
+        <div class="scroll-indicator" id="scroll-indicator">
            <span>⬇ Scroll Down ⬇</span>
-        </div>
-   </div>
+         </div>
+    </div>
 
-   <div class="image-section">
+    <div class="image-section">
        <img src="linked_image.jpg" alt="Linked Image">
     </div>
 
-   <script>
-        window.addEventListener('load', () => {
-           const loadingScreen = document.getElementById('loading-screen');
+    <script>
+       window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
              setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-               loadingScreen.style.pointerEvents = 'none';
+               loadingScreen.style.opacity = '0';
+              loadingScreen.style.pointerEvents = 'none';
                  setTimeout(() => {
                    loadingScreen.remove();
                 }, 500); // Wait for fade-out to complete before removing
-            }, 1500); // Show loading screen for 1.5 seconds
-        });
+           }, 1500); // Show loading screen for 1.5 seconds
+       });
 
+        const indicator = document.getElementById('scroll-indicator');
 
-       const indicator = document.getElementById('scroll-indicator');
-       window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+           const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
 
-           const opacity = 1 - scrollY / (windowHeight / 2);
-           indicator.style.opacity = Math.max(opacity, 0);
-       });
+             const opacity = 1 - scrollY / (windowHeight / 2);
+            indicator.style.opacity = Math.max(opacity, 0);
+      });
     </script>
 </body>
 </html>
