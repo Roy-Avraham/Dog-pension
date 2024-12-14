@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Camp</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            min-height: 100vh;
+             background-color: #b3e5fc; /* Slightly darker blue background */
+             font-family: Arial, sans-serif;
+        }
+       .content-container {
+             display: flex;
+            width: 100%; /* Full width */
+            box-sizing: border-box;
+             padding-top: 20px;
+            padding-left: 5%;
+            padding-right: 5%;
+            align-items: flex-start;
+        }
+
+        img {
+             max-width: 55%;
+            height: auto;
+            display: block;
+
+        }
+          .icon-text-link {
+            display: flex;
+             align-items: center;
+            cursor: pointer;
+             text-decoration: none;
+            color: inherit;
+             margin-left: auto; /* Push icon to right */
+        }
+        .icon-text-link:hover {
+             text-decoration: underline;
+        }
+         .icon-text-link img {
+           width: 90px;
+            height: 90px;
+            border: none;
+             margin-left: 10px;
+        }
+        .icon-text-link span {
+             font-size: 1.2em;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="content-container">
+        <img src="main_image.jpg" alt="Main Image">
+      <a href="linked_page.html" class="icon-text-link">
+           <span>?מה להביא איתכם</span>
+           <img src="icon.png" alt="Icon">
+        </a>
+   </div>
+</body>
+</html>
